@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hobi Memasak</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#fff8ef;
+    color:#42271d;
+}
+
+/* NAVBAR */
+nav{
+    position:sticky;
+    top:0;
+    z-index:10;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 7%;
+
+    background:#ffffff;
+    box-shadow:0 4px 20px rgba(0,0,0,.12);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+    color:#e95508;
+}
+
+.logo span{
+    color:#ff9f1c;
+}
+
+nav ul{
+    display:flex;
+    gap:22px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:#42271d;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#e95508;
+}
+
+/* HERO */
+.hero{
+    min-height:88vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+
+    background:
+        linear-gradient(135deg,#542b1d,#e85d04,#ffb703);
+    color:white;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero-icon{
+    font-size:100px;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#ffe066;
+}
+
+.hero p{
+    font-size:20px;
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 30px;
+
+    border-radius:30px;
+
+    background:white;
+    color:#e95508;
+
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* SECTION */
+section{
+    padding:80px 7%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.title h2{
+    font-size:40px;
+    color:#e95508;
+    margin-bottom:12px;
+}
+
+.title p{
+    max-width:750px;
+    margin:auto;
+    line-height:1.7;
+    color:#765d50;
+}
+
+/* CARD GRID */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+/* CARD */
+.card{
+    background:white;
+    border-radius:22px;
+    overflow:hidden;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+/* SVG IMAGE */
+.image{
+    height:240px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(135deg,#ffd6a5,#ffb703);
+}
+
+.image svg{
+    width:100%;
+    height:100%;
+}
+
+/* CARD TEXT */
+.card-content{
+    padding:25px;
+}
+
+.card-content h3{
+    color:#e95508;
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.card-content p{
+    color:#665249;
+    line-height:1.8;
+    text-align:justify;
+}
+
+/* ABOUT */
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.about-image{
+    background:linear-gradient(135deg,#ffb703,#e85d04);
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+.about-image svg{
+    width:100%;
+    display:block;
+}
+
+.about-text h3{
+    font-size:32px;
+    color:#e95508;
+    margin-bottom:15px;
+}
+
+.about-text p{
+    line-height:1.8;
+    margin-bottom:15px;
+    text-align:justify;
+}
+
+/* BACKGROUND */
+.bg{
+    background:#fff0dc;
+}
+
+/* BENEFITS */
+.benefits{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.benefit{
+    background:white;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
+}
+
+.benefit .image{
+    height:210px;
+}
+
+.benefit-text{
+    padding:25px;
+}
+
+.benefit-text h3{
+    color:#e95508;
+    margin-bottom:12px;
+}
+
+.benefit-text p{
+    line-height:1.7;
+    color:#665249;
+    text-align:justify;
+}
+
+/* TIPS */
+.tips{
+    background:#3b2118;
+    color:white;
+}
+
+.tips .title h2{
+    color:#ffb703;
+}
+
+.tip-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.tip{
+    background:#512d21;
+    border-radius:22px;
+    overflow:hidden;
+}
+
+.tip .image{
+    height:220px;
+}
+
+.tip-content{
+    padding:25px;
+}
+
+.tip-content h3{
+    color:#ffb703;
+    margin-bottom:12px;
+}
+
+.tip-content p{
+    line-height:1.7;
+    color:#f5ddd1;
+    text-align:justify;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:45px 20px;
+    background:#21130e;
+    color:white;
+}
+
+footer h2{
+    color:#ffb703;
+    margin-bottom:10px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+    .cards,
+    .benefits,
+    .tip-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+}
+
+@media(max-width:600px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .cards,
+    .benefits,
+    .tip-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    section{
+        padding:60px 5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">
+        🍳 Hobi<span>Memasak</span>
+    </div>
+
+    <ul>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#alat">Peralatan</a></li>
+        <li><a href="#masakan">Masakan</a></li>
+        <li><a href="#manfaat">Manfaat</a></li>
+        <li><a href="#tips">Tips</a></li>
+    </ul>
+</nav>
+
+
+<!-- HERO -->
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-icon">👨‍🍳🍳🥘</div>
+
+        <h1>
+            Hobi <span>Memasak</span>
+        </h1>
+
+        <p>
+            Memasak adalah hobi yang menyenangkan dan kreatif.
+            Dengan memasak, kita dapat mengolah berbagai bahan
+            menjadi hidangan yang lezat, mencoba resep baru,
+            mempelajari teknik memasak, serta membuat makanan
+            untuk dinikmati bersama keluarga dan teman.
+        </p>
+
+        <a href="#tentang" class="btn">
+            🍴 Jelajahi Dunia Memasak
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- TENTANG -->
+<section id="tentang">
+
+    <div class="title">
+        <h2>🍲 Apa Itu Hobi Memasak?</h2>
+
+        <p>
+            Memasak merupakan kegiatan mengolah bahan makanan
+            menggunakan berbagai teknik untuk menghasilkan
+            makanan yang lezat dan menarik.
+        </p>
+    </div>
+
+
+    <div class="about">
+
+        <!-- GAMBAR -->
+        <div class="about-image">
+
+            <svg viewBox="0 0 600 450"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <rect width="600" height="450"
+                      fill="#ffb703"/>
+
+                <!-- meja -->
+                <rect y="330"
+                      width="600"
+                      height="120"
+                      fill="#8b4513"/>
+
+                <!-- badan -->
+                <circle cx="300"
+                        cy="150"
+                        r="65"
+                        fill="#f4b183"/>
+
+                <!-- rambut -->
+                <path d="M235 140 Q300 60 365 140"
+                      fill="#3b2118"/>
+
+                <!-- topi koki -->
+                <path d="M225 100
+                         Q220 50 260 65
+                         Q300 20 340 65
+                         Q385 50 375 105
+                         Z"
+                      fill="white"/>
+
+                <!-- baju -->
+                <path d="M220 220
+                         Q300 190 380 220
+                         L420 350
+                         L180 350
+                         Z"
+                      fill="white"/>
+
+                <!-- panci -->
+                <ellipse cx="300"
+                         cy="330"
+                         rx="100"
+                         ry="25"
+                         fill="#555"/>
+
+                <rect x="205"
+                      y="280"
+                      width="190"
+                      height="55"
+                      rx="15"
+                      fill="#777"/>
+
+                <!-- api -->
+                <path d="M270 280
+                         Q300 230 330 280
+                         Q300 270 300 305
+                         Q270 300 270 280"
+                      fill="#e85d04"/>
+
+                <text x="300"
+                      y="410"
+                      text-anchor="middle"
+                      font-size="28"
+                      font-weight="bold"
+                      fill="white">
+                    SERUNYA MEMASAK!
+                </text>
+
+            </svg>
+
+        </div>
+
+
+        <!-- PENJELASAN -->
+        <div class="about-text">
+
+            <h3>Memasak Sebagai Hobi</h3>
+
+            <p>
+                Hobi memasak adalah aktivitas yang dilakukan
+                seseorang untuk mengolah bahan makanan menjadi
+                hidangan dengan rasa, aroma, tekstur, dan tampilan
+                yang menarik.
+            </p>
+
+            <p>
+                Memasak tidak hanya berkaitan dengan membuat makanan.
+                Kegiatan ini juga membutuhkan kreativitas karena
+                seseorang dapat menentukan bahan, bumbu, teknik
+                pengolahan, hingga cara penyajian makanan.
+            </p>
+
+            <p>
+                Dengan mencoba berbagai resep, seseorang dapat
+                mengenal banyak jenis makanan dari berbagai daerah
+                dan negara. Pengalaman tersebut membuat kegiatan
+                memasak menjadi lebih menarik.
+            </p>
+
+            <p>
+                Memasak juga dapat dilakukan bersama keluarga atau
+                teman sehingga menjadi kegiatan yang menyenangkan
+                untuk menghabiskan waktu.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PERALATAN -->
+<section class="bg" id="alat">
+
+    <div class="title">
+
+        <h2>🔪 Peralatan Memasak</h2>
+
+        <p>
+            Setiap peralatan dapur memiliki fungsi yang berbeda.
+            Berikut beberapa peralatan yang sering digunakan.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <!-- PISAU -->
+        <div class="card">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <rect width="500" height="300"
+                          fill="#ffd6a5"/>
+
+                    <!-- pisau -->
+                    <polygon points="90,180 350,80 385,110 120,205"
+                             fill="#d9d9d9"/>
+
+                    <polygon points="350,80 425,55 385,110"
+                             fill="#eeeeee"/>
+
+                    <rect x="105"
+                          y="180"
+                          width="125"
+                          height="38"
+                          rx="15"
+                          transform="rotate(-20 105 180)"
+                          fill="#542b1d"/>
+
+                    <text x="250"
+                          y="270"
+                          text-anchor="middle"
+                          font-size="27"
+                          font-weight="bold"
+                          fill="#542b1d">
+                        PISAU DAPUR
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>🔪 Pisau Dapur</h3>
+
+                <p>
+                    Pisau dapur digunakan untuk memotong,
+                    mengiris, mencincang, dan mempersiapkan
+                    berbagai bahan makanan. Pisau merupakan
+                    peralatan penting dalam proses memasak.
+                    Penggunaannya harus dilakukan dengan hati-hati
+                    dan memperhatikan keselamatan.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- WAJAN -->
+        <div class="card">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#ffcf99"/>
+
+                    <!-- gagang -->
+                    <rect x="330"
+                          y="115"
+                          width="130"
+                          height="35"
+                          rx="15"
+                          fill="#542b1d"/>
+
+                    <!-- wajan -->
+                    <ellipse cx="250"
+                             cy="155"
+                             rx="145"
+                             ry="75"
+                             fill="#333"/>
+
+                    <ellipse cx="250"
+                             cy="145"
+                             rx="115"
+                             ry="55"
+                             fill="#555"/>
+
+                    <!-- makanan -->
+                    <circle cx="215"
+                            cy="140"
+                            r="25"
+                            fill="#ffb703"/>
+
+                    <circle cx="275"
+                            cy="150"
+                            r="25"
+                            fill="#e85d04"/>
+
+                    <circle cx="250"
+                            cy="115"
+                            r="20"
+                            fill="#70ad47"/>
+
+                    <!-- api -->
+                    <path d="M210 230
+                             Q250 180 290 230
+                             Q250 210 250 260
+                             Q210 250 210 230"
+                          fill="#e85d04"/>
+
+                    <text x="250"
+                          y="285"
+                          text-anchor="middle"
+                          font-size="27"
+                          font-weight="bold"
+                          fill="#542b1d">
+                        WAJAN MEMASAK
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>🍳 Wajan Memasak</h3>
+
+                <p>
+                    Wajan digunakan untuk menumis, menggoreng,
+                    memasak sayuran, membuat telur, dan mengolah
+                    berbagai jenis lauk. Wajan tersedia dalam
+                    berbagai ukuran sehingga dapat dipilih sesuai
+                    dengan kebutuhan.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PANCI -->
+        <div class="card">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#ffc98b"/>
+
+                    <!-- panci -->
+                    <rect x="145"
+                          y="90"
+                          width="210"
+                          height="130"
+                          rx="20"
+                          fill="#666"/>
+
+                    <ellipse cx="250"
+                             cy="95"
+                             rx="105"
+                             ry="30"
+                             fill="#333"/>
+
+                    <!-- sup -->
+                    <ellipse cx="250"
+                             cy="100"
+                             rx="85"
+                             ry="20"
+                             fill="#e85d04"/>
+
+                    <circle cx="220"
+                            cy="100"
+                            r="10"
+                            fill="#70ad47"/>
+
+                    <circle cx="275"
+                            cy="105"
+                            r="12"
+                            fill="#ffb703"/>
+
+                    <!-- pegangan -->
+                    <rect x="105"
+                          y="120"
+                          width="45"
+                          height="30"
+                          rx="10"
+                          fill="#333"/>
+
+                    <rect x="350"
+                          y="120"
+                          width="45"
+                          height="30"
+                          rx="10"
+                          fill="#333"/>
+
+                    <text x="250"
+                          y="270"
+                          text-anchor="middle"
+                          font-size="30"
+                          font-weight="bold"
+                          fill="#542b1d">
+                        PANCI
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>🥘 Panci</h3>
+
+                <p>
+                    Panci digunakan untuk merebus bahan,
+                    membuat sup, memasak pasta, membuat saus,
+                    dan mengolah makanan yang membutuhkan
+                    cairan. Ukuran panci dapat disesuaikan
+                    dengan jumlah makanan yang dibuat.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SPATULA -->
+        <div class="card">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#ffd6a5"/>
+
+                    <!-- handle -->
+                    <rect x="235"
+                          y="35"
+                          width="30"
+                          height="160"
+                          rx="12"
+                          fill="#542b1d"/>
+
+                    <!-- spatula -->
+                    <rect x="190"
+                          y="170"
+                          width="120"
+                          height="75"
+                          rx="15"
+                          fill="#777"/>
+
+                    <rect x="205"
+                          y="185"
+                          width="90"
+                          height="10"
+                          fill="#444"/>
+
+                    <rect x="205"
+                          y="210"
+                          width="90"
+                          height="10"
+                          fill="#444"/>
+
+                    <text x="250"
+                          y="275"
+                          text-anchor="middle"
+                          font-size="30"
+                          font-weight="bold"
+                          fill="#542b1d">
+                        SPATULA
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>🥄 Spatula</h3>
+
+                <p>
+                    Spatula digunakan untuk mengaduk, membalik,
+                    dan memindahkan makanan ketika memasak.
+                    Alat ini sangat berguna ketika memasak
+                    menggunakan wajan atau penggorengan.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- TALENAN -->
+        <div class="card">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#f4c095"/>
+
+                    <rect x="110"
+                          y="65"
+                          width="280"
+                          height="175"
+                          rx="25"
+                          fill="#9b5a2e"/>
+
+                    <circle cx="350"
+                            cy="100"
+                            r="12"
+                            fill="#42271d"/>
+
+                    <!-- sayuran -->
+                    <circle cx="190"
+                            cy="135"
+                            r="30"
+                            fill="#70ad47"/>
+
+                    <circle cx="270"
+                            cy="175"
+                            r="30"
+                            fill="#e85d04"/>
+
+                    <circle cx="330"
+                            cy="145"
+                            r="28"
+                            fill="#ffb703"/>
+
+                    <text x="250"
+                          y="275"
+                          text-anchor="middle"
+                          font-size="28"
+                          font-weight="bold"
+                          fill="#542b1d">
+                        TALENAN DAPUR
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>🪵 Talenan</h3>
+
+                <p>
+                    Talenan digunakan sebagai alas untuk
+                    memotong berbagai bahan makanan.
+                    Penggunaan talenan membantu proses persiapan
+                    bahan menjadi lebih rapi dan teratur.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- MANGKUK -->
+        <div class="card">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#ffe0b2"/>
+
+                    <!-- mangkuk -->
+                    <path d="M120 105
+                             Q250 70 380 105
+                             L350 205
+                             Q250 250 150 205
+                             Z"
+                          fill="#eeeeee"/>
+
+                    <ellipse cx="250"
+                             cy="105"
+                             rx="130"
+                             ry="35"
+                             fill="#ffffff"/>
+
+                    <!-- makanan -->
+                    <circle cx="205"
+                            cy="100"
+                            r="20"
+                            fill="#e85d04"/>
+
+                    <circle cx="250"
+                            cy="95"
+                            r="22"
+                            fill="#70ad47"/>
+
+                    <circle cx="295"
+                            cy="105"
+                            r="20"
+                            fill="#ffb703"/>
+
+                    <text x="250"
+                          y="275"
+                          text-anchor="middle"
+                          font-size="30"
+                          font-weight="bold"
+                          fill="#542b1d">
+                        MANGKUK
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>🥣 Mangkuk</h3>
+
+                <p>
+                    Mangkuk digunakan untuk menampung bahan,
+                    mencampurkan adonan, menyiapkan bumbu,
+                    maupun menyajikan makanan. Berbagai ukuran
+                    mangkuk dapat digunakan sesuai kebutuhan.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTOH MASAKAN -->
+<section id="masakan">
+
+    <div class="title">
+
+        <h2>🍜 Contoh Masakan</h2>
+
+        <p>
+            Salah satu hal paling menyenangkan dari memasak
+            adalah mencoba berbagai jenis hidangan.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <!-- NASI GORENG -->
+        <div class="card">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#ffcc80"/>
+
+                    <ellipse cx="250"
+                             cy="160"
+                             rx="160"
+                             ry="70"
+                             fill="white"/>
+
+                    <!-- nasi -->
+                    <ellipse cx="250"
+                             cy="145"
+                             rx="120"
+                             ry="45"
+                             fill="#e0a65b"/>
+
+                    <circle cx="205"
+                            cy="140"
+                            r="15"
+                            fill="#70ad47"/>
+
+                    <circle cx="270"
+                            cy="130"
+                            r="15"
+                            fill="#e85d04"/>
+
+                    <circle cx="300"
+                            cy="155"
+                            r="14"
+                            fill="#ffb703"/>
+
+                    <text x="250"
+                          y="270"
+                          text-anchor="middle"
+                          font-size="30"
+                          font-weight="bold"
+                          fill="#542b1d">
+                        NASI GORENG
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>🍚 Nasi Goreng</h3>
+
+                <p>
+                    Nasi goreng merupakan hidangan yang mudah
+                    dikreasikan. Kita dapat menambahkan telur,
+                    sayuran, ayam, atau bahan lain sesuai selera.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PASTA -->
+        <div class="card">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#ffd6a5"/>
+
+                    <ellipse cx="250"
+                             cy="160"
+                             rx="155"
+                             ry="75"
+                             fill="white"/>
+
+                    <!-- pasta -->
+                    <path d="M145 145
+                             Q200 110 250 150
+                             T355 145"
+                          fill="none"
+                          stroke="#f0b44d"
+                          stroke-width="22"/>
+
+                    <path d="M150 175
+                             Q210 130 260 170
+                             T350 170"
+                          fill="none"
+                          stroke="#e6a63b"
+                          stroke-width="22"/>
+
+                    <!-- saus -->
+                    <circle cx="250"
+                            cy="150"
+                            r="30"
+                            fill="#d63c18"/>
+
+                    <text x="250"
+                          y="270"
+                          text-anchor="middle"
+                          font-size="32"
+                          font-weight="bold"
+                          fill="#542b1d">
+                        PASTA
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>🍝 Pasta</h3>
+
+                <p>
+                    Pasta dapat dibuat dengan berbagai jenis saus
+                    dan bahan tambahan. Hidangan ini menarik untuk
+                    dibuat karena dapat dikreasikan sesuai selera.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PIZZA -->
+        <div class="card">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#ffc98b"/>
+
+                    <!-- pizza -->
+                    <circle cx="250"
+                            cy="150"
+                            r="105"
+                            fill="#d99435"/>
+
+                    <circle cx="250"
+                            cy="150"
+                            r="85"
+                            fill="#e85d04"/>
+
+                    <!-- keju -->
+                    <circle cx="205"
+                            cy="120"
+                            r="20"
+                            fill="#ffcc33"/>
+
+                    <circle cx="285"
+                            cy="130"
+                            r="20"
+                            fill="#ffcc33"/>
+
+                    <circle cx="245"
+                            cy="185"
+                            r="20"
+                            fill="#ffcc33"/>
+
+                    <!-- topping -->
+                    <circle cx="205"
+                            cy="165"
+                            r="13"
+                            fill="#9b2c2c"/>
+
+                    <circle cx="300"
+                            cy="175"
+                            r="13"
+                            fill="#9b2c2c"/>
+
+                    <text x="250"
+                          y="280"
+                          text-anchor="middle"
+                          font-size="32"
+                          font-weight="bold"
+                          fill="#542b1d">
+                        PIZZA
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>🍕 Pizza</h3>
+
+                <p>
+                    Pizza merupakan makanan yang menarik untuk
+                    dibuat karena kita dapat memilih berbagai
+                    topping dan mengatur tampilannya sesuai
+                    kreativitas.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MANFAAT -->
+<section class="bg" id="manfaat">
+
+    <div class="title">
+
+        <h2>💡 Manfaat Hobi Memasak</h2>
+
+        <p>
+            Memasak bukan hanya menyenangkan, tetapi juga
+            dapat memberikan berbagai pengalaman positif.
+        </p>
+
+    </div>
+
+
+    <div class="benefits">
+
+
+        <div class="benefit">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300">
+
+                    <rect width="500" height="300"
+                          fill="#ffb703"/>
+
+                    <text x="250"
+                          y="155"
+                          text-anchor="middle"
+                          font-size="90">
+                        🎨
+                    </text>
+
+                    <text x="250"
+                          y="245"
+                          text-anchor="middle"
+                          font-size="27"
+                          font-weight="bold"
+                          fill="#542b1d">
+                        KREATIVITAS
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="benefit-text">
+
+                <h3>🎨 Meningkatkan Kreativitas</h3>
+
+                <p>
+                    Memasak memberikan kesempatan untuk
+                    bereksperimen dengan rasa, bahan, warna,
+                    tekstur, dan cara penyajian.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#70ad47"/>
+
+                    <text x="250"
+                          y="155"
+                          text-anchor="middle"
+                          font-size="90">
+                        😊
+                    </text>
+
+                    <text x="250"
+                          y="245"
+                          text-anchor="middle"
+                          font-size="27"
+                          font-weight="bold"
+                          fill="white">
+                        MENYENANGKAN
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="benefit-text">
+
+                <h3>😊 Aktivitas Menyenangkan</h3>
+
+                <p>
+                    Memasak dapat menjadi kegiatan yang
+                    menyenangkan untuk mengisi waktu luang
+                    sekaligus menghasilkan makanan.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#e85d04"/>
+
+                    <text x="250"
+                          y="155"
+                          text-anchor="middle"
+                          font-size="90">
+                        📚
+                    </text>
+
+                    <text x="250"
+                          y="245"
+                          text-anchor="middle"
+                          font-size="27"
+                          font-weight="bold"
+                          fill="white">
+                        BELAJAR
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="benefit-text">
+
+                <h3>📚 Menambah Pengetahuan</h3>
+
+                <p>
+                    Kita dapat mempelajari berbagai bahan,
+                    bumbu, teknik memasak, dan budaya kuliner
+                    dari berbagai daerah.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- TIPS -->
+<section class="tips" id="tips">
+
+    <div class="title">
+
+        <h2>🔥 Tips Belajar Memasak</h2>
+
+        <p style="color:#eadbd4;">
+            Mulailah dari hal sederhana dan terus berlatih.
+        </p>
+
+    </div>
+
+
+    <div class="tip-grid">
+
+
+        <div class="tip">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#ffb703"/>
+
+                    <text x="250"
+                          y="160"
+                          text-anchor="middle"
+                          font-size="85">
+                        👨‍🍳
+                    </text>
+
+                    <text x="250"
+                          y="250"
+                          text-anchor="middle"
+                          font-size="27"
+                          font-weight="bold"
+                          fill="#542b1d">
+                        MULAI BERLATIH
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="tip-content">
+
+                <h3>01. Mulai dari Resep Mudah</h3>
+
+                <p>
+                    Pilih resep sederhana terlebih dahulu.
+                    Setelah terbiasa, cobalah resep yang
+                    memiliki tingkat kesulitan lebih tinggi.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#70ad47"/>
+
+                    <text x="250"
+                          y="160"
+                          text-anchor="middle"
+                          font-size="85">
+                        🥕
+                    </text>
+
+                    <text x="250"
+                          y="250"
+                          text-anchor="middle"
+                          font-size="27"
+                          font-weight="bold"
+                          fill="white">
+                        KENALI BAHAN
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="tip-content">
+
+                <h3>02. Kenali Bahan</h3>
+
+                <p>
+                    Pelajari karakteristik bahan makanan,
+                    termasuk rasa, tekstur, dan cara
+                    pengolahannya.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#e85d04"/>
+
+                    <text x="250"
+                          y="160"
+                          text-anchor="middle"
+                          font-size="85">
+                        🔪
+                    </text>
+
+                    <text x="250"
+                          y="250"
+                          text-anchor="middle"
+                          font-size="27"
+                          font-weight="bold"
+                          fill="white">
+                        GUNAKAN ALAT
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="tip-content">
+
+                <h3>03. Kenali Peralatan</h3>
+
+                <p>
+                    Ketahui fungsi setiap peralatan dapur
+                    dan gunakan dengan hati-hati agar
+                    kegiatan memasak tetap aman.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#9b5a2e"/>
+
+                    <text x="250"
+                          y="160"
+                          text-anchor="middle"
+                          font-size="85">
+                        🥣
+                    </text>
+
+                    <text x="250"
+                          y="250"
+                          text-anchor="middle"
+                          font-size="27"
+                          font-weight="bold"
+                          fill="white">
+                        PERSIAPKAN
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="tip-content">
+
+                <h3>04. Persiapkan Bahan</h3>
+
+                <p>
+                    Siapkan bahan dan peralatan terlebih dahulu
+                    agar proses memasak lebih teratur dan
+                    tidak terburu-buru.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#ff9f1c"/>
+
+                    <text x="250"
+                          y="160"
+                          text-anchor="middle"
+                          font-size="85">
+                        🔥
+                    </text>
+
+                    <text x="250"
+                          y="250"
+                          text-anchor="middle"
+                          font-size="27"
+                          font-weight="bold"
+                          fill="#542b1d">
+                        TERUS MENCOBA
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="tip-content">
+
+                <h3>05. Terus Berlatih</h3>
+
+                <p>
+                    Semakin sering berlatih, semakin banyak
+                    pengalaman yang diperoleh dan semakin
+                    baik keterampilan memasak.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="image">
+
+                <svg viewBox="0 0 500 300">
+
+                    <rect width="500"
+                          height="300"
+                          fill="#70ad47"/>
+
+                    <text x="250"
+                          y="160"
+                          text-anchor="middle"
+                          font-size="85">
+                        🍽️
+                    </text>
+
+                    <text x="250"
+                          y="250"
+                          text-anchor="middle"
+                          font-size="27"
+                          font-weight="bold"
+                          fill="white">
+                        NIKMATI HASIL
+                    </text>
+
+                </svg>
+
+            </div>
+
+            <div class="tip-content">
+
+                <h3>06. Nikmati Hasilnya</h3>
+
+                <p>
+                    Setelah makanan selesai dibuat, nikmati
+                    hasilnya dan evaluasi rasa maupun tampilan
+                    untuk meningkatkan kemampuan memasak.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- PENUTUP -->
+<section>
+
+    <div class="title">
+
+        <h2>❤️ Masak dengan Hati</h2>
+
+        <p>
+            Memasak bukan hanya tentang menghasilkan makanan.
+            Memasak adalah proses belajar, berkreasi, mencoba,
+            dan berbagi kebahagiaan dengan orang lain.
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h2>🍳 Hobi Memasak</h2>
+
+    <p>
+        Belajar • Berkreasi • Memasak • Berbagi
+    </p>
+
+    <br>
+
+    <p>
+        © 2026 Website Hobi Memasak
+    </p>
+
+</footer>
+
+</body>
+</html>
